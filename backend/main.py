@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import os
+from backend.model import analyze_image
 
 app = FastAPI()
 
@@ -15,7 +16,13 @@ def read_root():
 # ✅ Analyze endpoint (برای تست test_analyze_endpoint_no_file)
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
-    return {"filename": file.filename, "result": "analysis placeholder"}
+    result = analyze_image(file.filename)
+
+    return {
+        "filename": file.filename,
+        "prediction": result["prediction"],
+        "confidence": result["confidence"]
+    }
 
 # ✅ Upload endpoint جدید
 @app.post("/upload-image/")
