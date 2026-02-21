@@ -2,6 +2,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import os
 from backend.model import analyze_image
+from backend.storage import save_result
 
 app = FastAPI()
 
@@ -17,6 +18,12 @@ def read_root():
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
     result = analyze_image(file.filename)
+
+    save_result(
+        filename=file.filename,
+        prediction=result["prediction"],
+        confidence=result["confidence"]
+    )
 
     return {
         "filename": file.filename,
