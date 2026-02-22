@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import os
 from backend.model import analyze_image
-from backend.storage import save_result
+from backend.storage import save_result, load_results
 
 app = FastAPI()
 
@@ -44,3 +44,7 @@ async def upload_image(file: UploadFile = File(...)):
             "message": "Image uploaded successfully"
         }
     )
+
+@app.get("/results")
+def get_results():
+    return load_results()

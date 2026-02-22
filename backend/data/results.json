@@ -10,5 +10,11 @@
         "prediction": "Normal",
         "confidence": 0.85,
         "timestamp": "2026-02-21T14:22:37.646479"
+    },
+    {
+        "filename": "photo24279298910.jpg",
+        "prediction": "Normal",
+        "confidence": 0.85,
+        "timestamp": "2026-02-22T10:19:26.278747"
     }
 ]

@@ -24,3 +24,10 @@ def save_result(filename: str, prediction: str, confidence: float):
 
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
+
+def load_results():
+    if not os.path.exists(DATA_FILE):
+        return []
+    
+    with open(DATA_FILE, "r") as f:
+        return json.load(f)
