@@ -3,6 +3,8 @@ from fastapi.responses import JSONResponse
 import os
 from backend.model import analyze_image
 from backend.storage import save_result, load_results
+from backend.schemas.result import AnalysisResult
+from typing import List
 
 app = FastAPI()
 
@@ -45,6 +47,6 @@ async def upload_image(file: UploadFile = File(...)):
         }
     )
 
-@app.get("/results")
+@app.get("/results", response_model=List[AnalysisResult])
 def get_results():
     return load_results()
