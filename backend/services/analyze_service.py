@@ -1,9 +1,11 @@
-from backend.model import analyze_image
+from backend.ai.classifier_model import SimpleClassifier
 from backend.storage import save_result
 
 
 async def run_analysis(file):
-    result = analyze_image(file.filename)
+
+    model = SimpleClassifier()
+    result = model.predict(file)
 
     save_result(
         filename=file.filename,
