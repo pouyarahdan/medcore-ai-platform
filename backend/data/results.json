@@ -1,26 +1,9 @@
 [
     {
+        "job_id": "f1b7e476-204b-4365-89e0-e31e398bb766",
         "filename": "photo24279298910.jpg",
         "prediction": "Normal",
         "confidence": 0.85,
-        "timestamp": "2026-02-21T14:22:30.854546"
-    },
-    {
-        "filename": "photo24279298910.jpg",
-        "prediction": "Normal",
-        "confidence": 0.85,
-        "timestamp": "2026-02-21T14:22:37.646479"
-    },
-    {
-        "filename": "photo24279298910.jpg",
-        "prediction": "Normal",
-        "confidence": 0.85,
-        "timestamp": "2026-02-22T10:19:26.278747"
-    },
-    {
-        "filename": "photo24279298910.jpg",
-        "prediction": "Normal",
-        "confidence": 0.85,
-        "timestamp": "2026-02-24T13:14:19.429434"
+        "timestamp": "2026-02-27T12:50:59.403904"
     }
 ]
