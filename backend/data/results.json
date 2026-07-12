@@ -1,9 +1,10 @@
 [
     {
-        "job_id": "f1b7e476-204b-4365-89e0-e31e398bb766",
+        "job_id": "ae6494d5-5ab5-434b-9812-0589680e1193",
         "filename": "photo24279298910.jpg",
         "prediction": "Normal",
         "confidence": 0.85,
-        "timestamp": "2026-02-27T12:50:59.403904"
+        "status": "completed",
+        "timestamp": "2026-07-12T12:49:31.663629"
     }
 ]

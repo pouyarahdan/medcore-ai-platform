@@ -7,4 +7,5 @@ class AnalysisResult(BaseModel):
     filename: str
     prediction: str
     confidence: float
+    status : str
     timestamp: datetime

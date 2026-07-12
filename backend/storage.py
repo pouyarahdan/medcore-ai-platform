@@ -7,12 +7,13 @@ DATA_FILE = "backend/data/results.json"
 
 def save_result(filename: str, prediction: str, confidence: float, job_id: str):
     result = {
-        "job_id": job_id,
-        "filename": filename,
-        "prediction": prediction,
-        "confidence": confidence,
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    "job_id": job_id,
+    "filename": filename,
+    "prediction": prediction,
+    "confidence": confidence,
+    "status": "completed",
+    "timestamp": datetime.utcnow().isoformat()
+}
 
     os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
 
