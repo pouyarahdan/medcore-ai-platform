@@ -12,3 +12,8 @@ def read_root():
 app.include_router(analyze_router)
 app.include_router(upload_router)
 app.include_router(results_router)
+
+from backend.database.database import engine
+from backend.database.models import Base
+
+Base.metadata.create_all(bind=engine)
