@@ -2,6 +2,9 @@ import json
 import os
 from datetime import datetime
 
+from sqlalchemy.orm import Session
+from backend.database.models import Analysis
+
 DATA_FILE = "backend/data/results.json"
 
 
@@ -30,6 +33,28 @@ def save_result(filename: str, prediction: str, confidence: float, job_id: str):
 
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
+
+def save_result_db(
+    db: Session,
+    filename: str,
+    prediction: str,
+    confidence: float,
+    job_id: str
+):
+    result = Analysis(
+        job_id=job_id,
+        filename=filename,
+        prediction=prediction,
+        confidence=confidence,
+        status="completed",
+        timestamp=datetime.utcnow()
+    )
+
+    db.add(result)
+    db.commit()
+    db.refresh(result)
+
+    return result
 
 
 def load_results():
