@@ -73,3 +73,6 @@ def get_result_by_job_id(job_id: str):
             return item
 
     return None
+
+def load_results_db(db: Session):
+    return db.query(Analysis).all()
