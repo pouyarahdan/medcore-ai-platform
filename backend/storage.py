@@ -76,3 +76,12 @@ def get_result_by_job_id(job_id: str):
 
 def load_results_db(db: Session):
     return db.query(Analysis).all()
+
+def load_results_db(db: Session):
+    return db.query(Analysis).all()
+
+
+def get_result_by_job_id_db(db: Session, job_id: str):
+    return db.query(Analysis).filter(
+        Analysis.job_id == job_id
+    ).first()
