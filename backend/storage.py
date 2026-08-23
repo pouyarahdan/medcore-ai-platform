@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy.orm import Session
 
@@ -18,7 +18,7 @@ def save_result_db(
         prediction=prediction,
         confidence=confidence,
         status="completed",
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
 
     db.add(result)
