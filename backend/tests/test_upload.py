@@ -1,10 +1,7 @@
-from fastapi.testclient import TestClient
-from backend.main import app
 import io
 
-client = TestClient(app)
 
-def test_upload_image():
+def test_upload_image(client):
     file_content = b"fake image data"
     file = io.BytesIO(file_content)
 

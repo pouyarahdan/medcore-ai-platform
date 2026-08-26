@@ -1,12 +1,4 @@
-from fastapi.testclient import TestClient
-
-from backend.main import app
-
-
-client = TestClient(app)
-
-
-def test_analyze_with_file():
+def test_analyze_with_file(client):
     file_content = b"fake image data"
 
     response = client.post(
@@ -25,9 +17,10 @@ def test_analyze_with_file():
     data = response.json()
 
     assert "job_id" in data
-    assert data["status"] == "completed" 
+    assert data["status"] == "completed"
 
-def test_analyze_result_can_be_retrieved():
+
+def test_analyze_result_can_be_retrieved(client):
     file_content = b"fake image data"
 
     response = client.post(
@@ -44,7 +37,6 @@ def test_analyze_result_can_be_retrieved():
     assert response.status_code == 200
 
     analyze_data = response.json()
-
     job_id = analyze_data["job_id"]
 
     result_response = client.get(f"/results/{job_id}")
