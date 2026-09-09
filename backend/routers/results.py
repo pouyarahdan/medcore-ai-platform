@@ -32,8 +32,3 @@ def get_result(
         )
 
     return result
-
-
-@router.get("/results-db")
-def get_results_db(db: Session = Depends(get_db)):
-    return load_results_db(db)
