@@ -15,7 +15,7 @@ app = FastAPI(
 )
 
 
-@app.get("/")
+@app.get("/", tags=["System"])
 def read_root():
     return {"message": "MedCore AI Backend is running"}
 

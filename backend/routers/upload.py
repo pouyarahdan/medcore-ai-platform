@@ -2,7 +2,9 @@ from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import JSONResponse
 import os
 
-router = APIRouter()
+router = APIRouter(
+    tags=["Uploads"]
+)
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)

@@ -4,7 +4,9 @@ from sqlalchemy.orm import Session
 from backend.services.analyze_service import run_analysis
 from backend.database.database import get_db
 
-router = APIRouter()
+router = APIRouter(
+    tags=["Analysis"]
+)
 
 
 @router.post("/analyze")

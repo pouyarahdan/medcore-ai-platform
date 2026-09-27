@@ -10,7 +10,9 @@ from backend.storage import (
 )
 from backend.schemas.result import AnalysisResult
 
-router = APIRouter()
+router = APIRouter(
+    tags=["Results"]
+)
 
 
 @router.get("/results", response_model=List[AnalysisResult])
