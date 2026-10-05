@@ -50,3 +50,39 @@ def test_analyze_result_can_be_retrieved(client):
     assert result_data["prediction"] == "Normal"
     assert result_data["confidence"] == 0.85
     assert result_data["status"] == "completed"
+
+
+def test_analyze_invalid_file_type(client):
+    response = client.post(
+        "/analyze",
+        files={
+            "file": (
+                "test.txt",
+                b"this is not an image",
+                "text/plain"
+            )
+        }
+    )
+
+    assert response.status_code == 400
+    assert response.json() == {
+        "detail": "Unsupported file type"
+    }
+
+
+def test_analyze_empty_file(client):
+    response = client.post(
+        "/analyze",
+        files={
+            "file": (
+                "empty.png",
+                b"",
+                "image/png"
+            )
+        }
+    )
+
+    assert response.status_code == 400
+    assert response.json() == {
+        "detail": "Empty file"
+    }
